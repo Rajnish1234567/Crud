@@ -1,0 +1,36 @@
+
+<div class="container">
+    <h1 style="text-align: center;">Update Employee</h1>
+    <form >
+        <div class="form-group">
+          <label for="exampleInputEmail1">Full Name</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter full name" [(ngModel)]="updatedEmp.name" [ngModelOptions]="{standalone: true}">
+          <small id="emailHelp" class="form-text text-muted">The same name will be appeared on Identity card</small>
+       <br>
+          <label for="exampleInputEmail1">Department</label>
+          <input type="text" class="form-control" [(ngModel)]="updatedEmp.department" [ngModelOptions]="{standalone: true}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter department">
+          <br>
+          <label for="exampleInputEmail1">Mobile</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" [(ngModel)]="updatedEmp.mobile" [ngModelOptions]="{standalone: true}" aria-describedby="emailHelp" placeholder="Enter mobile number (10 digits only)">
+        <br>
+          <label for="exampleInputEmail1">Email</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" [(ngModel)]="updatedEmp.emailId" [ngModelOptions]="{standalone: true}" aria-describedby="emailHelp" placeholder="Enter email">
+            <br>
+          <label for="exampleInputEmail1">Salary</label>
+          <input type="number" class="form-control" id="exampleInputEmail1" [(ngModel)]="updatedEmp.salary" [ngModelOptions]="{standalone: true}" aria-describedby="emailHelp" placeholder="Enter Salary">
+
+          <label for="exampleInputEmail1">City</label>
+          <input type="string" class="form-control" id="exampleInputEmail1" [(ngModel)]="updatedEmp.city" [ngModelOptions]="{standalone: true}" aria-describedby="emailHelp" placeholder="Enter City">
+        <br>
+            <label for="exampleInputEmail1">Pincode</label>
+            <input type="number" class="form-control" id="exampleInputEmail1" [(ngModel)]="updatedEmp.pincode" [ngModelOptions]="{standalone: true}" aria-describedby="emailHelp" placeholder="Enter Pin code">
+        <br>
+            <label for="exampleInputEmail1">Dist</label>
+            <input type="string" class="form-control" id="exampleInputEmail1" [(ngModel)]="updatedEmp.district" [ngModelOptions]="{standalone: true}" aria-describedby="emailHelp" placeholder="Enter District">
+        <br>
+            <label for="exampleInputEmail1">State</label>
+            <input type="string" class="form-control" id="exampleInputEmail1" [(ngModel)]="updatedEmp.state" [ngModelOptions]="{standalone: true}" aria-describedby="emailHelp" placeholder="Enter State">
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="updateEmployee()">Submit</button>
+      </form>
+</div>
