@@ -13,20 +13,47 @@ export class EmpService {
 
   constructor(private httpClient: HttpClient) { }
 
+  addEmployee(employee:UserData): Observable<any> {
+    return this.httpClient.post<any>(`${this.baseUrl}/save`, employee);
+  }
+
+
+
+
+
+
+  updateEmployee(employee:UserData): Observable<any> {
+    return this.httpClient.put<any>(`${this.baseUrl}/update`, employee);
+  }
+
+
+
+
+
   getEmpList(): Observable<any> {
     return this.httpClient.get<any>(`${this.baseUrl}/getAllEmp`);
   }
 
-  addEmployee(employee:UserData): Observable<any> {
-    return this.httpClient.post<any>(`${this.baseUrl}/save`, employee);
-  }
   getEmployeeById(empId: number): Observable<any> {
     return this.httpClient.get<any>(`${this.baseUrl}/getById/${empId}`);
   }
-  updateEmployee(employee:UserData): Observable<any> {
-    return this.httpClient.put<any>(`${this.baseUrl}/update`, employee);
+
+  getEmployeeByMobile(mobile: string): Observable<any> {
+    return this.httpClient.get<any>(`${this.baseUrl}/getByMobile?mobile=${mobile}`);
   }
+
+  getEmployeeByName(name: string): Observable<any> {
+    return this.httpClient.get<any>(`${this.baseUrl}/getByName?name=${name}`);
+  }
+
+
+
+  
   deleteEmployee(empId: number): Observable<any> {
     return this.httpClient.delete<any>(`${this.baseUrl}/deleteEmp?id=${empId}`);
+  }
+
+  deleteAllEmployee(): Observable<any> {
+    return this.httpClient.delete<any>(`${this.baseUrl}/deleteAll`);
   }
 }

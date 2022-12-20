@@ -10,26 +10,32 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./update-employee.component.css']
 })
 export class UpdateEmployeeComponent implements OnInit {
+  
   updatedEmp: UserData = new UserData();
   id!:number;
   
-  constructor(private employeeService: EmpService, 
+  constructor(
+    private employeeService: EmpService, 
     private router: Router,
-    private route: ActivatedRoute) {
-  }
+    private route: ActivatedRoute
+    ) {}
   
   ngOnInit(): void {
     this.id=this.route.snapshot.params['id'];
     
     this.employeeService.getEmployeeById(this.id).subscribe(data=>{
       this.updatedEmp=data;
-    }, err=>console.log(err));
+    }, error=>{
+      alert(error.error.details);
+    });
   }
 
   updateEmployee(){
     this.employeeService.updateEmployee(this.updatedEmp).subscribe(data=>{
       this.router.navigate(['/employees']);
-    },error=>console.log(error));
+    },error=>{
+      alert(error.error.details);
+    });
   }
 
 }

@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './footer/footer.component';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { EmpDetailsComponent } from './emp-details/emp-details.component';
+import { AdminComponent } from './admin/admin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,8 @@ import { EmpDetailsComponent } from './emp-details/emp-details.component';
     EmpListComponent,
     FooterComponent,
     UpdateEmployeeComponent,
-    EmpDetailsComponent
+    EmpDetailsComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

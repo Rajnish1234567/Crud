@@ -10,7 +10,7 @@ import { EmpService } from '../emp.service';
 })
 export class EmpFormComponent implements OnInit {
   userData: UserData = new UserData();
-
+  flag: boolean = true;
   constructor(private employeeService: EmpService) { 
 
   }
@@ -19,10 +19,15 @@ export class EmpFormComponent implements OnInit {
   onSubmit(){
     this.saveEmployee();
   }
+  
   saveEmployee(){
     this.employeeService.addEmployee(this.userData).subscribe(data=>{
-      console.log(data);
-    }, err=>console.log(err)
-    )
+      alert("employee added successfully");
+    }, error=>{
+      alert(error.error.details);
+    });
+  }
+  revertFlag(){
+    this.flag=!this.flag;
   }
 }

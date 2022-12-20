@@ -14,13 +14,11 @@ export class EmpListComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.getEmployees();
-  }
-  getEmployees(){
     this.employeeService.getEmpList().subscribe({
-      next:(res)=>{
-        console.log(res);
-        this.employees=res;
+      next:(response)=>{
+        this.employees = response;
+    }, error:(error)=>{
+      alert(error.error.details);
       }
     });
   }
@@ -32,10 +30,10 @@ export class EmpListComponent implements OnInit {
   deleteEmployee(id:any){
     this.employeeService.deleteEmployee(id).subscribe({
       next:(response)=>{
-        console.log(response);
+        // alert('Employee deleted');
         window.location.reload();
     }, error:(error)=>{
-      console.log(error);
+      // alert(error.error.details);
       window.location.reload();
       }
     });

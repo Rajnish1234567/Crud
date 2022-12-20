@@ -7,6 +7,9 @@
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter full name" [(ngModel)]="updatedEmp.name" [ngModelOptions]="{standalone: true}">
           <small id="emailHelp" class="form-text text-muted">The same name will be appeared on Identity card</small>
        <br>
+       <label for="exampleInputEmail1">Profile Pic</label>
+       <input type="text" class="form-control" [(ngModel)]="updatedEmp.imageUrl" [ngModelOptions]="{standalone: true}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter image link here">
+       <br>
           <label for="exampleInputEmail1">Department</label>
           <input type="text" class="form-control" [(ngModel)]="updatedEmp.department" [ngModelOptions]="{standalone: true}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter department">
           <br>

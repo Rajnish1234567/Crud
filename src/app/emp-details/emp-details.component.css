@@ -1,0 +1,28 @@
+.container{
+    text-align: center;
+    align-items: center;
+}
+h1{
+    font-size: 50px;
+    font-weight: 400;
+    color: teal;
+    margin-bottom: 30px;
+}
+.img{
+    border-radius: 100px;
+    width: 400px;
+    height:auto;
+    border: 5px solid gray;
+    margin-bottom: 30px;
+}
+.details{
+    width:60%;
+    margin:auto;
+}
+label{
+    font-size: 25px;
+    font-weight: 200;
+}
+span{
+    font-size: 18px;
+}
