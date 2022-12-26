@@ -1,0 +1,18 @@
+<div class="container">
+    <h1 style="text-align: center;">Edit Bank Details</h1>
+    <form >
+        <div class="form-group">
+          <label for="exampleInputEmail1">Pan Card Number</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Pan card number" [(ngModel)]="updatedDetails.panCardNo" [ngModelOptions]="{standalone: true}">
+          
+       <br>
+          <label for="exampleInputEmail1">Aadhar Card Number</label>
+          <input type="text" class="form-control" [(ngModel)]="updatedDetails.aadharNo" [ngModelOptions]="{standalone: true}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Aadhar card Number">
+          <br>
+          <label for="exampleInputEmail1">Bank Account Number</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" [(ngModel)]="updatedDetails.accountNo" [ngModelOptions]="{standalone: true}" aria-describedby="emailHelp" placeholder="Enter Bank Account Number">
+        
+        </div>
+        <button type="submit"  class="btn btn-success" (click)="editBankDetails()">Submit</button>
+      </form>
+</div>

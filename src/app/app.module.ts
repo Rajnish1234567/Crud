@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { EmpDetailsComponent } from './emp-details/emp-details.component';
 import { AdminComponent } from './admin/admin.component';
+import { BankUpdateFormComponent } from './bank-update-form/bank-update-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { AdminComponent } from './admin/admin.component';
     FooterComponent,
     UpdateEmployeeComponent,
     EmpDetailsComponent,
-    AdminComponent
+    AdminComponent,
+    BankUpdateFormComponent,
   ],
   imports: [
     BrowserModule,

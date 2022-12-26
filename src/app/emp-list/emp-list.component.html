@@ -7,9 +7,7 @@
                 <th>Department</th>
                 <th>Mobile</th>
                 <th>Email</th>
-                <th>City</th>
-                <th>State</th>
-                <th>emp_id</th>
+                <th>Employee Id</th>
             </tr>
         </thead>
         <tbody>
@@ -18,8 +16,6 @@
                 <td>{{employee.department}}</td>
                 <td>{{employee.mobile}}</td>
                 <td>{{employee.emailId}}</td>
-                <td>{{employee.city}}</td>
-                <td>{{employee.state}}</td> 
                 <td>{{employee.employeeId}}</td>
                 <button class="btn btn-primary" (click)="employeeDetails(employee.employeeId)">Details</button>
                 <button class="btn btn-success" (click)="updateEmployee(employee.employeeId)">Update</button>

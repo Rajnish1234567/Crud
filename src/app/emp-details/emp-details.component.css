@@ -26,3 +26,16 @@ label{
 span{
     font-size: 18px;
 }
+tbody,tr,td{
+    text-align: center;
+}
+thead,tr,th{
+    text-align: center;
+}
+h2{
+    text-align: center;
+    color: gray;
+}
+.container{
+    background-color: rgb(239, 241, 241);
+}

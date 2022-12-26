@@ -4,17 +4,77 @@
     <div><img class="img" src="{{employee.imageUrl}}alt="></div>
     
 </div>
-<div class="details">
-    <div><label >Name: <span>{{employee.name}}</span></label></div>
-    <div><label >EmployeeId: <span>{{employee.employeeId}}</span></label></div>
-    <div><label >Department: <span>{{employee.department}}</span></label>
-    <div><label >Email: <span>{{employee.emailId}}</span></label></div>
-    <div><label >Mobile No.: <span>{{employee.mobile}}</span></label></div>
-    <hr>
-    <h2>Contact Details</h2>
-    <div><label >City: <span>{{employee.city}}</span></label></div>
-    <div><label >Zip Code: <span>{{employee.pincode}}</span></label></div>
-    <div><label >District: <span>{{employee.district}}</span></label></div>
-    <div><label >State: <span>{{employee.state}}</span></label></div>
+<div class="container">
+    <h2>Personal Details</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Employee Id</th>
+                <th>Department</th>
+                <th>Email Id</th>
+                <th>Mobile No.</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{employee.name}}</td>
+                <td>{{employee.employeeId}}</td>
+                <td>{{employee.department}}</td>
+                <td>{{employee.emailId}}</td>
+                <td>{{employee.mobile}}</td>
+                <td>{{employee.salary}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="container">
+    <h2>Address Details</h2>
+</div>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>City</th>
+                <th>ZipCode</th>
+                <th>District</th>
+                <th>State</th>
+                <!-- <button class="btn btn-success" >Add Address</button> -->
+            </tr>
+        </thead>
+        <tbody *ngFor="let add of employee.addressList">
+            <tr>
+                <td>{{add.city}}</td>
+                <td>{{add.pincode}}</td>
+                <td>{{add.district}}</td>
+                <td>{{add.state}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
+<div class="container">
+    <h2>Bank Details</h2>
+</div>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Bank Id</th>
+                <th>Pan Card </th>
+                <th>Aadhar Card</th>
+                <th>Account No.</th>
+            </tr>
+        </thead>
+        <tbody >
+            <tr>
+                <td>{{employee.bankingDetails.bankId}}</td>
+                <td>{{employee.bankingDetails.panCardNo}}</td>
+                <td>{{employee.bankingDetails.aadharNo}}</td>
+                <td>{{employee.bankingDetails.accountNo}}</td>
+                <button class="btn btn-primary" (click)="editBankDetails(employee.bankingDetails.bankId)">Edit</button>
+            </tr>
+        </tbody>
+    </table>
 </div>

@@ -3,12 +3,11 @@
     <h1 style="text-align: center;">Employee Registration</h1>
     <form >
         <div class="form-group">
-          <label for="exampleInputEmail1">Full Name</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter full name" [(ngModel)]="userData.name" [ngModelOptions]="{standalone: true}">
-          <small id="emailHelp" class="form-text text-muted">The same name will be appeared on Identity card</small>
+          <label >Full Name</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter full name" [(ngModel)]="userData.name" name="name" [ngModelOptions]="{standalone: true}">
        <br>
-       <label for="exampleInputEmail1">Profile Pic</label>
-       <input type="text" class="form-control" [(ngModel)]="userData.imageUrl" [ngModelOptions]="{standalone: true}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter image link here">
+       <label>Profile Pic</label>
+       <input type="text" class="form-control" [(ngModel)]="userData.imageUrl" [ngModelOptions]="{standalone: true}"  placeholder="Enter image link here">
        <br>
           <label for="exampleInputEmail1">Department</label>
           <input type="text" class="form-control" [(ngModel)]="userData.department" [ngModelOptions]="{standalone: true}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter department">
@@ -21,26 +20,34 @@
             <br>
           <label for="exampleInputEmail1">Salary</label>
           <input type="number" class="form-control" id="exampleInputEmail1" [(ngModel)]="userData.salary" [ngModelOptions]="{standalone: true}" aria-describedby="emailHelp" placeholder="Enter Salary">
+          
+          </div>
 
-        <br><br>
-        <h3 style="text-align: center;">Contact Details</h3>
-
-          <label for="exampleInputEmail1">City</label>
-          <input type="string" class="form-control" id="exampleInputEmail1" [(ngModel)]="userData.city" [ngModelOptions]="{standalone: true}" aria-describedby="emailHelp" placeholder="Enter City">
-        <br>
-            <label for="exampleInputEmail1">Pincode</label>
-            <input type="number" class="form-control" id="exampleInputEmail1" [(ngModel)]="userData.pincode" [ngModelOptions]="{standalone: true}" aria-describedby="emailHelp" placeholder="Enter Pin code">
-        <br>
-            <label for="exampleInputEmail1">Dist</label>
-            <input type="string" class="form-control" id="exampleInputEmail1" [(ngModel)]="userData.district" [ngModelOptions]="{standalone: true}" aria-describedby="emailHelp" placeholder="Enter District">
-        <br>
-            <label for="exampleInputEmail1">State</label>
-            <input type="string" class="form-control" id="exampleInputEmail1" [(ngModel)]="userData.state" [ngModelOptions]="{standalone: true}" aria-describedby="emailHelp" placeholder="Enter State">
+          <h1 style="text-align: center;">Employee Address</h1>
+          <div *ngFor="let add of addArray; let i=index" class="address">
+          <input [ngModelOptions]="{standalone: true}" name="city" [(ngModel)]="add.city" placeholder="City" type="text">
+          <input [ngModelOptions]="{standalone: true}" name="pincode" [(ngModel)]="add.pincode" placeholder="Pincode" type="text">
+          <input [ngModelOptions]="{standalone: true}" name="district" [(ngModel)]="add.district" placeholder="District" type="text">
+          <input [ngModelOptions]="{standalone: true}" name="state" [(ngModel)]="add.state" placeholder="State" type="text">
+          <button (click)="removeAddress(i)" class="btn btn-danger">-</button>
         </div>
+        <button (click)="addAddress()" class="btn btn-primary">+</button>
+
+        <h1 style="text-align: center;">Bank Details</h1>
+        <label for="exampleInputEmail1">Pan Card Number</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Pan card number" [(ngModel)]="bank.panCardNo" [ngModelOptions]="{standalone: true}">
+       <br>
+          <label for="exampleInputEmail1">Aadhar Card Number</label>
+          <input type="text" class="form-control" [(ngModel)]="bank.aadharNo" [ngModelOptions]="{standalone: true}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Aadhar card Number">
+          <br>
+          <label for="exampleInputEmail1">Bank Account Number</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" [(ngModel)]="bank.accountNo" [ngModelOptions]="{standalone: true}" aria-describedby="emailHelp" placeholder="Enter Bank Account Number">
+        
         <div class="form-group form-check">
             <input type="checkbox" (click)="revertFlag()" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">Not a Robot</label>
         </div>
         <button type="submit" class="btn btn-success"[disabled]="flag" (click)="onSubmit()">Submit</button>
+
       </form>
 </div>

@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AdminComponent {
 
-  flag: boolean = false;
+  flag: boolean = true;
   email!: string ;
   password!: string;
   login(){

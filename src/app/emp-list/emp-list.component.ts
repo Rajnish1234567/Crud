@@ -30,10 +30,11 @@ export class EmpListComponent implements OnInit {
   deleteEmployee(id:any){
     this.employeeService.deleteEmployee(id).subscribe({
       next:(response)=>{
-        // alert('Employee deleted');
+        console.log(response);
+        alert('Employee deleted');
         window.location.reload();
     }, error:(error)=>{
-      // alert(error.error.details);
+      console.log(error);
       window.location.reload();
       }
     });

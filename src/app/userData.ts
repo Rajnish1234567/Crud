@@ -1,13 +1,15 @@
+import { AddressData } from "./addressData";
+import { BankingData } from "./BankingData";
+
 export class UserData{
   employeeId?:number;
   imageUrl?:string;
   name?: string;
   department?: string;
-  mobile?: boolean;
+  mobile?: String;
   emailId?: String;
   salary?: number;
-  city?: String;
-  pincode?: String;
-  district?: string;
-  state?: string;
+  addressList! : AddressData[];
+  bankingDetails!:BankingData;
+  
 }

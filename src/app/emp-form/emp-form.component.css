@@ -1,0 +1,8 @@
+.address{
+    width: 100%;
+    display:flex;
+}
+.address input{
+    width: 20%;
+    margin-left: 3%;
+}
