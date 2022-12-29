@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { UserData } from './userData';
 import { AddressData } from './addressData';
 import { BankingData } from './BankingData';
+import { SearchModel } from './emp-list/searchModel';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,9 @@ export class EmpService {
 
   getEmpList(): Observable<any> {
     return this.httpClient.get<UserData>(`${this.baseUrl}/emp/getAllEmp`);
+  }
+  getModifiedList(searchModel:SearchModel): Observable<any> {
+    return this.httpClient.post<any>(`${this.baseUrl}/emp/getModifiedList`,searchModel);
   }
 
   getEmployeeById(empId: number): Observable<any> {

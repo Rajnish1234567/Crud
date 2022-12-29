@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, InjectFlags, OnInit } from '@angular/core';
 import { UserData } from '../userData';
 import { EmpService } from '../emp.service';
 import { Router } from '@angular/router';
+import { SearchModel } from './searchModel';
 
 @Component({
   selector: 'app-emp-list',
@@ -10,19 +11,59 @@ import { Router } from '@angular/router';
 })
 export class EmpListComponent implements OnInit {
   employees: UserData[]=[];
+  searchModel: SearchModel=new SearchModel();
+  count:Number=0;
+  total:Number=0;
   constructor(private employeeService: EmpService, private router: Router){
-
+    this.searchModel.psize=5;
+    this.searchModel.fromValue=1;
+    this.searchModel.filterField="department";
+    this.searchModel.sort="employeeId";
+    this.searchModel.order="asc"
   }
   ngOnInit(): void {
-    this.employeeService.getEmpList().subscribe({
+    this.count=this.searchModel.fromValue*this.searchModel.psize;
+    this.employeeService.getModifiedList(this.searchModel).subscribe({
       next:(response)=>{
         this.employees = response;
+        this.total=this.employees.length;
     }, error:(error)=>{
       alert(error.error.details);
       }
     });
   }
 
+  mySearch(searchModel:SearchModel){
+    this.employeeService.getModifiedList(this.searchModel).subscribe({
+      next:(response)=>{
+        this.employees = response;
+        this.total=this.employees.length;
+    }, error:(error)=>{
+      alert(error.error.details);
+      }
+    });
+  }
+  onPageDown(){
+    this.searchModel.fromValue=this.searchModel.fromValue-1;
+    this.mySearch(this.searchModel);
+  }
+  onPageUp(){
+    this.searchModel.fromValue=this.searchModel.fromValue+1;
+    this.mySearch(this.searchModel);
+  }
+  ontableSizeChange(event:any):void{
+    this.searchModel.psize=event.target.value;
+    this.mySearch(this.searchModel);
+  }
+  decFlag(){
+    if(this.searchModel.fromValue<=1) return true;
+    else return false;
+  }
+  incFlag(){
+    if(this.count>this.total)
+    return true;
+    else return false;
+  }
   updateEmployee(id:any){
     this.router.navigate(['update-employee',id]);
   }

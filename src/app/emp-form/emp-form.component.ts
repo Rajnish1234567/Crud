@@ -40,6 +40,7 @@ export class EmpFormComponent implements OnInit {
       alert("employee added successfully");
     }, error=>{
       console.log(error);
+      alert(error.error.message);
     });
   }
   

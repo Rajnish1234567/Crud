@@ -1,17 +1,21 @@
-<h2 style="text-align: center;">Employee List</h2>
+<h2 style="text-align: center;
+color:teal;
+font-size: 40px;
+font-weight: 400;"
+>Employee List</h2>
 <div class="filter">
     <div>
-        <input type="text" name="" id="" placeholder="Search By Name">
-        <button>Search</button>
+        <input type="text" name="" id="" [(ngModel)]="searchModel.search" (input)="mySearch(searchModel)" placeholder="Search By Name">
+        <button (click)="mySearch(searchModel)">Search</button>
     </div>
     <div>
         <label >Sort By</label>
-        <select name="" id="">
+        <select (change)="mySearch(searchModel)" name="" id="" [(ngModel)]="searchModel.sort">
             <option value="employeeId">EmployeeId</option>
             <option value="name">Name</option>
             <option value="department">Department</option>
         </select>
-        <select name="" id="">
+        <select (change)="mySearch(searchModel)" name="" id="" [(ngModel)]="searchModel.order">
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
         </select>
@@ -19,13 +23,21 @@
     
     <div>
         <label >Filter</label>
-        <select name="" id="">
-            <option value="name">Name</option>
+        <select name="" id="" [(ngModel)]="searchModel.filterField">
             <option value="department">Department</option>
+            <option value="name">Name</option>
         </select>
-        <input type="text" placeholder="Enter data">
+        <input type="text" placeholder="Enter data" (input)="mySearch(searchModel)" [(ngModel)]="searchModel.filter">
     </div>
-
+    <div>
+        <label >Page Size</label>
+        <select name="" id="" [(ngModel)]="searchModel.psize" (change)="mySearch(searchModel)">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+        </select>
+    </div>
 </div>
 <div class="container">
     <table class="table table-striped">
@@ -39,7 +51,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let employee of employees">
+            <tr *ngFor="let employee of employees ;let i=index">
                 <td>{{employee.name}}</td>
                 <td>{{employee.department}}</td>
                 <td>{{employee.mobile}}</td>
@@ -54,13 +66,8 @@
     
 </div>
 <div class="pagination">
-    <a href="#">&laquo;</a>
-    <a href="#">1</a>
-    <a class="active" href="#">2</a>
-    <a href="#">3</a>
-    <a href="#">4</a>
-    <a href="#">5</a>
-    <a href="#">6</a>
-    <a href="#">&raquo;</a>
-</div> 
+    <button class="btn btn-primary" [disabled]="decFlag()" (click)="onPageDown()"> << </button>
+    <a class="active">{{searchModel.fromValue}}</a>
+    <button class="btn btn-primary" [disabled]="incFlag()" (click)="onPageUp()"> >> </button>
+</div>
 
