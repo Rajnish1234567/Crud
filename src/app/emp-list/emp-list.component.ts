@@ -12,7 +12,6 @@ import { SearchModel } from './searchModel';
 export class EmpListComponent implements OnInit {
   employees: UserData[]=[];
   searchModel: SearchModel=new SearchModel();
-  count:Number=0;
   total:Number=0;
   constructor(private employeeService: EmpService, private router: Router){
     this.searchModel.psize=5;
@@ -22,7 +21,6 @@ export class EmpListComponent implements OnInit {
     this.searchModel.order="asc"
   }
   ngOnInit(): void {
-    this.count=this.searchModel.fromValue*this.searchModel.psize;
     this.employeeService.getModifiedList(this.searchModel).subscribe({
       next:(response)=>{
         this.employees = response;
@@ -53,6 +51,7 @@ export class EmpListComponent implements OnInit {
   }
   ontableSizeChange(event:any):void{
     this.searchModel.psize=event.target.value;
+    this.searchModel.fromValue=1;
     this.mySearch(this.searchModel);
   }
   decFlag(){
@@ -60,7 +59,7 @@ export class EmpListComponent implements OnInit {
     else return false;
   }
   incFlag(){
-    if(this.count>this.total)
+    if(this.searchModel.psize>this.total)
     return true;
     else return false;
   }
