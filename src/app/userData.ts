@@ -1,5 +1,6 @@
 import { AddressData } from "./addressData";
 import { BankingData } from "./BankingData";
+import { RoleData } from "./roleData";
 
 export class UserData{
   employeeId?:number;
@@ -11,5 +12,6 @@ export class UserData{
   salary?: number;
   addressList! : AddressData[];
   bankingDetails!:BankingData;
+  roleList!: RoleData[];
   
 }

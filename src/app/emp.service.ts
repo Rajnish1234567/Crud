@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -13,6 +13,10 @@ import { SearchModel } from './emp-list/searchModel';
 
 export class EmpService {
   public baseUrl = 'http://localhost:8585/hostbooks';
+
+  requestHeader=new HttpHeaders(
+    {"No-Auth": "true"}
+  );
 
   constructor(private httpClient: HttpClient) { }
 
@@ -74,6 +78,13 @@ export class EmpService {
     return this.httpClient.get<any>(`${this.baseUrl}/bank/getByBankId?bankId=${bankId}`);
   }
 
+
+
+  // -------------------------Login Service-------------------------------------
+
+  login(loginData:any){
+    return this.httpClient.post<any>(`${this.baseUrl}/auth/login`,loginData, {headers:this.requestHeader});
+  }
 
 
 }

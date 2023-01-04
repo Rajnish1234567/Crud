@@ -49,9 +49,9 @@ export class EmpListComponent implements OnInit {
     this.searchModel.fromValue=this.searchModel.fromValue+1;
     this.mySearch(this.searchModel);
   }
-  ontableSizeChange(event:any):void{
-    this.searchModel.psize=event.target.value;
+  ontableSizeChange(event:any){
     this.searchModel.fromValue=1;
+    this.searchModel.psize=event.target.value;
     this.mySearch(this.searchModel);
   }
   decFlag(){

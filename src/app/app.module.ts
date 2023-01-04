@@ -13,6 +13,8 @@ import { UpdateEmployeeComponent } from './update-employee/update-employee.compo
 import { EmpDetailsComponent } from './emp-details/emp-details.component';
 import { AdminComponent } from './admin/admin.component';
 import { BankUpdateFormComponent } from './bank-update-form/bank-update-form.component';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +26,8 @@ import { BankUpdateFormComponent } from './bank-update-form/bank-update-form.com
     EmpDetailsComponent,
     AdminComponent,
     BankUpdateFormComponent,
+    LoginComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,

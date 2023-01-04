@@ -4,4 +4,10 @@
         <li><a routerLink="create-employee" routerLinkActive="active">Add Employee</a></li>
         <li><a routerLink="employees" routerLinkActive="active">Employee List</a></li>
     </ul>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <button *ngIf="isLoggedIn()" routerLink="login" class="btn btn-success">LogIn</button>
+          <button *ngIf="!isLoggedIn()" routerLink="logout" class="btn btn-danger" (click)="logout()">LogOut</button>
+        </ul>
+      </div>
 </nav>
