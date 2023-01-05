@@ -14,6 +14,7 @@ export class LoginComponent {
       private userauthservice: UserAuthService,
       private router: Router){}
   loginUser(loginForm:NgForm){
+    
     this.userservice.login(loginForm.value).subscribe(
       data=>{
       // console.log(data.token);

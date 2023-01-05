@@ -10,11 +10,10 @@ export class HeaderComponent {
   constructor(public userAuthService: UserAuthService){}
   ngOnInit() {
   }
-  login:Boolean=false;
-  public isLoggedIn() : boolean {
-    return this.userAuthService.isLoggedIn();
-  }
+  login:Boolean=this.userAuthService.isLoggedIn();
+
   public logout(){
     this.userAuthService.clear();
+    this.login=false;
   }
 }
