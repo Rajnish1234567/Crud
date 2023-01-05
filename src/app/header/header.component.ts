@@ -8,12 +8,14 @@ import { UserAuthService } from '../user-auth.service';
 })
 export class HeaderComponent {
   constructor(public userAuthService: UserAuthService){}
+  login:Boolean=false;
   ngOnInit() {
+    this.login=this.userAuthService.isLoggedIn();
   }
-  login:Boolean=this.userAuthService.isLoggedIn();
+  
 
   public logout(){
     this.userAuthService.clear();
-    this.login=false;
+    this.login=this.userAuthService.isLoggedIn();
   }
 }
