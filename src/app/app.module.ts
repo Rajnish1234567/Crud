@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { EmpFormComponent } from './emp-form/emp-form.component';
 import { EmpListComponent } from './emp-list/emp-list.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FooterComponent } from './footer/footer.component';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { EmpDetailsComponent } from './emp-details/emp-details.component';
@@ -15,6 +15,9 @@ import { AdminComponent } from './admin/admin.component';
 import { BankUpdateFormComponent } from './bank-update-form/bank-update-form.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { AuthGuard } from './auth/auth.guard';
+import { AuthInterceptor } from './auth/auth.interceptor';
+import { EmpService } from './emp.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +39,15 @@ import { LogoutComponent } from './logout/logout.component';
     HttpClientModule,
     NgxPaginationModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:AuthInterceptor,
+      multi:true
+    },
+    EmpService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

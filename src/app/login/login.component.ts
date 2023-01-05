@@ -16,7 +16,7 @@ export class LoginComponent {
   loginUser(loginForm:NgForm){
     this.userservice.login(loginForm.value).subscribe(
       data=>{
-      console.log(data.token);
+      // console.log(data.token);
       this.userauthservice.setToken(data.token);
       // this.userauthservice.setRoles(data.user.roles);
       // let role=data.user.roles[0];
@@ -25,7 +25,7 @@ export class LoginComponent {
       //   this.router.navigate(['/admin']);
       // }
       // else
-      // this.router.navigate(['/admin']);
+      this.router.navigate(['/employees']);
     },
     (error)=>{
       console.log(error);

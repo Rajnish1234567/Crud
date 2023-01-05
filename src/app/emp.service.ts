@@ -6,6 +6,7 @@ import { UserData } from './userData';
 import { AddressData } from './addressData';
 import { BankingData } from './BankingData';
 import { SearchModel } from './emp-list/searchModel';
+import { UserAuthService } from './user-auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,8 @@ export class EmpService {
     {"No-Auth": "true"}
   );
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,
+    private userAuthService: UserAuthService) { }
 
 
   // -------------------employeeService-------------------------
@@ -36,7 +38,7 @@ export class EmpService {
     return this.httpClient.get<UserData>(`${this.baseUrl}/emp/getAllEmp`);
   }
   getModifiedList(searchModel:SearchModel): Observable<any> {
-    return this.httpClient.post<any>(`${this.baseUrl}/emp/getModifiedList`,searchModel);
+    return this.httpClient.post<any>(`${this.baseUrl}/emp/getModifiedList`,searchModel, );
   }
 
   getEmployeeById(empId: number): Observable<any> {

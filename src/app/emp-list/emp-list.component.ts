@@ -26,7 +26,7 @@ export class EmpListComponent implements OnInit {
         this.employees = response;
         this.total=this.employees.length;
     }, error:(error)=>{
-      alert(error.error.details);
+      alert(error);
       }
     });
   }
@@ -37,7 +37,7 @@ export class EmpListComponent implements OnInit {
         this.employees = response;
         this.total=this.employees.length;
     }, error:(error)=>{
-      alert(error.error.details);
+      alert(error);
       }
     });
   }
