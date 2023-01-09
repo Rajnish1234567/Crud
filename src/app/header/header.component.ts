@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserAuthService } from '../user-auth.service';
 
 @Component({
@@ -6,14 +6,15 @@ import { UserAuthService } from '../user-auth.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   constructor(public userAuthService: UserAuthService){}
-  login:Boolean=false;
+  login!:Boolean;
   ngOnInit() {
+    this.checkLogin();
+  }
+  checkLogin() {
     this.login=this.userAuthService.isLoggedIn();
   }
-  
-
   public logout(){
     this.userAuthService.clear();
     this.login=this.userAuthService.isLoggedIn();

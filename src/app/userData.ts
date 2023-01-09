@@ -10,8 +10,8 @@ export class UserData{
   mobile?: String;
   emailId?: String;
   salary?: number;
+  password?: String;
   addressList! : AddressData[];
   bankingDetails!:BankingData;
   roleList!: RoleData[];
-  
 }

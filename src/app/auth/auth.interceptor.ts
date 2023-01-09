@@ -1,5 +1,4 @@
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
-import { IfStmt } from "@angular/compiler";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { catchError, Observable, throwError } from "rxjs";
@@ -18,7 +17,7 @@ export class AuthInterceptor implements HttpInterceptor{
             return next.handle(req.clone());
         }
         const token=this.userAuthService.getToken();
-        req=this.addToken(req, token);
+        req=this.addToken(req, token); 
         console.warn(req);
         return next.handle(req).pipe(
             catchError(

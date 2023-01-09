@@ -11,7 +11,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FooterComponent } from './footer/footer.component';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { EmpDetailsComponent } from './emp-details/emp-details.component';
-import { AdminComponent } from './admin/admin.component';
 import { BankUpdateFormComponent } from './bank-update-form/bank-update-form.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
@@ -27,7 +26,6 @@ import { EmpService } from './emp.service';
     FooterComponent,
     UpdateEmployeeComponent,
     EmpDetailsComponent,
-    AdminComponent,
     BankUpdateFormComponent,
     LoginComponent,
     LogoutComponent,

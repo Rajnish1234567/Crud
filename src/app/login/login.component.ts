@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output , EventEmitter} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EmpService } from '../emp.service';
@@ -13,12 +13,14 @@ export class LoginComponent {
   constructor(private userservice: EmpService, 
       private userauthservice: UserAuthService,
       private router: Router){}
+      @Output() messageEvent= new EventEmitter<Boolean>();
+      flag!: boolean;
+
   loginUser(loginForm:NgForm){
-    
     this.userservice.login(loginForm.value).subscribe(
       data=>{
-      // console.log(data.token);
       this.userauthservice.setToken(data.token);
+      this.flag=true;
       // this.userauthservice.setRoles(data.user.roles);
       // let role=data.user.roles[0];
 
@@ -26,10 +28,13 @@ export class LoginComponent {
       //   this.router.navigate(['/admin']);
       // }
       // else
-      this.router.navigate(['/employees']);
+      this.router.navigate(['/employees'] );
     },
     (error)=>{
       console.log(error);
     });
+  }
+  sendLoginMessage(){
+    this.messageEvent.emit(this.flag);
   }
 }

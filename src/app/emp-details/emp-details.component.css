@@ -13,7 +13,15 @@ h1{
     width: 400px;
     height:auto;
     border: 5px solid gray;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+}
+.name{
+    font-size: 30px;
+    color: brown;
+    font-weight:900
+}
+h4{
+    margin-bottom: 40px;
 }
 .details{
     width:60%;

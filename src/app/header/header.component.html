@@ -1,13 +1,15 @@
 <nav>
-    <img src="https://www.appengine.ai/uploads/images/profile/logo/Hostbooks-AI.png" alt="header-logo">
+  <div class="icon"><img src="https://www.appengine.ai/uploads/images/profile/logo/Hostbooks-AI.png" alt="header-logo">
     <ul class="nav-list">
-        <li><a routerLink="create-employee" routerLinkActive="active">Add Employee</a></li>
-        <li><a routerLink="employees" routerLinkActive="active">Employee List</a></li>
+        <li><a *ngIf="login" routerLink="create-employee" routerLinkActive="active">Add Employee</a></li>
+        <li><a *ngIf="login" routerLink="employees" routerLinkActive="active">Employee List</a></li>
     </ul>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+  </div>
+    
+    <div class="log">
         <ul class="nav navbar-nav navbar-right">
-          <button *ngIf="login" routerLink="login" class="btn btn-success">LogIn</button>
-          <button *ngIf="!login" routerLink="logout" class="btn btn-danger" (click)="logout()">LogOut</button>
+          <button *ngIf="!login" routerLink="login" class="btn btn-success">LogIn</button>
+          <button *ngIf="login" routerLink="logout" class="btn btn-danger" (click)="logout()">LogOut</button>
         </ul>
       </div>
 </nav>

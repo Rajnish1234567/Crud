@@ -1,18 +1,21 @@
 import { JsonPipe } from '@angular/common';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserAuthService {
+export class UserAuthService implements OnInit{
 
   constructor() { }
+
+  ngOnInit(): void {
+  }
 
   public setRoles(roles:[]){
     localStorage.setItem('roles', JSON.stringify(roles));
   }
 
-  public getUsers(){
+  public getRoles(){
     return JSON.parse(localStorage.getItem('roles') || "");
   }
   public setToken(jwtToken: string){
@@ -20,7 +23,6 @@ export class UserAuthService {
   }
   getToken(){
     let token:string | null = localStorage.getItem('token');
-    // console.log(token+"-----------token");
     return token;
     
   }
@@ -30,7 +32,7 @@ export class UserAuthService {
   }
   public isLoggedIn(){
     const token = this.getToken();
-    if(token && token.length==0) return true;
-    else return true;
+    if(token!=null) return true;
+    else return false;
   }
 }

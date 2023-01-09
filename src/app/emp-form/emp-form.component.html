@@ -20,7 +20,10 @@
             <br>
           <label for="exampleInputEmail1">Salary</label>
           <input type="number" class="form-control" id="exampleInputEmail1" [(ngModel)]="userData.salary" [ngModelOptions]="{standalone: true}" aria-describedby="emailHelp" placeholder="Enter Salary">
-          
+          <br>
+          <label for="exampleInputEmail1">Password</label>
+          <input type="password" class="form-control" id="exampleInputEmail1" [(ngModel)]="userData.password" [ngModelOptions]="{standalone: true}" aria-describedby="emailHelp" placeholder="Enter Password">
+            
           </div>
 
           <h1 style="text-align: center;">Employee Address</h1>
@@ -29,6 +32,17 @@
           <input [ngModelOptions]="{standalone: true}" name="pincode" [(ngModel)]="add.pincode" placeholder="Pincode" type="text">
           <input [ngModelOptions]="{standalone: true}" name="district" [(ngModel)]="add.district" placeholder="District" type="text">
           <input [ngModelOptions]="{standalone: true}" name="state" [(ngModel)]="add.state" placeholder="State" type="text">
+          <button (click)="removeAddress(i)" class="btn btn-danger">-</button>
+        </div>
+        <button (click)="addAddress()" class="btn btn-primary">+</button>
+
+        <h1 style="text-align: center;">Assign Employee Roles</h1>
+          <div *ngFor="let add of addArray; let i=index" class="address">
+            <select  name="" id="">
+              <option value="USER">User</option>
+              <option value="ADMIN">Admin</option>
+            </select>
+          
           <button (click)="removeAddress(i)" class="btn btn-danger">-</button>
         </div>
         <button (click)="addAddress()" class="btn btn-primary">+</button>

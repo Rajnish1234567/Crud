@@ -21,7 +21,11 @@
             <br>
           <label for="exampleInputEmail1">Salary</label>
           <input type="number" class="form-control" id="exampleInputEmail1" [(ngModel)]="userData.salary" [ngModelOptions]="{standalone: true}" aria-describedby="emailHelp" placeholder="Enter Salary">
-          </div>
+          <br>
+          <label for="exampleInputEmail1">Password</label>
+          <input type="password" class="form-control" id="exampleInputEmail1" [(ngModel)]="userData.password" [ngModelOptions]="{standalone: true}" aria-describedby="emailHelp" placeholder="Enter Password">
+          
+        </div>
           <h1 style="text-align: center;">Employee Address</h1>
           <div *ngFor="let add of addArray; let i=index" class="address">
           <input [ngModelOptions]="{standalone: true}" name="city" [(ngModel)]="add.city" placeholder="City" type="text">

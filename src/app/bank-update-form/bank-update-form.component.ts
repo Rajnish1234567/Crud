@@ -23,7 +23,6 @@ export class BankUpdateFormComponent implements OnInit {
       this.updatedDetails = data;
   }, error => {
     console.log(error);
-    // alert("Error");
   });
 
   }
@@ -33,7 +32,6 @@ export class BankUpdateFormComponent implements OnInit {
       this.router.navigate(['employees']);
     }, error => {
       console.log(error);
-      // alert("error");
     });
   }
 

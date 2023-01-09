@@ -1,14 +1,22 @@
 nav{
+    display: flex;
     background-color: rgb(21, 65, 65);
-    padding: 15px;
+    padding: 20px;
+    justify-content: space-between;
+    padding-right: 50px;
+}
+nav *{
+    justify-content: center;
+}
+nav .icon{
+    display: flex;
 }
 
-nav img{
+nav div img{
     width:70px;
     margin-left: 30px;
 }
 .nav-list{
-    float: right;
     margin-right: 20px;
     list-style-type: none;
 }
