@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { LoginComponent } from '../login/login.component';
 import { UserAuthService } from '../user-auth.service';
 
 @Component({
@@ -8,7 +9,9 @@ import { UserAuthService } from '../user-auth.service';
 })
 export class HeaderComponent implements OnInit {
   constructor(public userAuthService: UserAuthService){}
-  login!:Boolean;
+  login!:boolean;
+  @ViewChild(LoginComponent) comp!:LoginComponent;
+  
   ngOnInit() {
     this.checkLogin();
   }
