@@ -1,4 +1,4 @@
-import { Component, InjectFlags, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserData } from '../userData';
 import { EmpService } from '../emp.service';
 import { Router } from '@angular/router';

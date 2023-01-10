@@ -1,4 +1,4 @@
-import { HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -11,7 +11,6 @@ import { UserAuthService } from './user-auth.service';
 @Injectable({
   providedIn: 'root'
 })
-
 export class EmpService {
   public baseUrl = 'http://localhost:8585/hostbooks';
 
@@ -20,7 +19,7 @@ export class EmpService {
   );
 
   constructor(private httpClient: HttpClient,
-    private userAuthService: UserAuthService) { }
+    private userAuthService: UserAuthService  ) { }
 
 
   // -------------------employeeService-------------------------
@@ -82,7 +81,7 @@ export class EmpService {
 
 
 
-  // -------------------------Login Service-------------------------------------
+       //    -------------------------Login Service-----------------------------
 
   login(loginData:any){
     return this.httpClient.post<any>(`${this.baseUrl}/auth/login`,loginData, {headers:this.requestHeader});
