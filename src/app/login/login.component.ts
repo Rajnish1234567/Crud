@@ -17,23 +17,17 @@ export class LoginComponent {
       flag!: boolean;
 
   loginUser(loginForm:NgForm){
-    this.userservice.login(loginForm.value).subscribe(
-      data=>{
-      this.userauthservice.setToken(data.token);
+    this.userservice.login(loginForm.value).subscribe({
+    next:(response)=>{
+      this.userauthservice.setToken(response.token);
       this.flag=true;
-      // this.userauthservice.setRoles(data.user.roles);
-      // let role=data.user.roles[0];
-
-      // if(role=="admin"){
-      //   this.router.navigate(['/admin']);
-      // }
-      // else
-      this.router.navigate(['/employees'] );
-    },
-    (error)=>{
+    }, error:(error)=>{
       console.log(error);
+    }
     });
   }
+
+  
   sendLoginMessage(){
     this.messageEvent.emit(this.flag);
   }

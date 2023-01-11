@@ -5,7 +5,7 @@ font-weight: 400;"
 >Employee List</h2>
 <div class="filter">
     <div>
-        <input type="text" name="" id="" [(ngModel)]="searchModel.search" (input)="mySearch(searchModel)" placeholder="Search Here">
+        <input type="text" name="" id="" [(ngModel)]="searchModel.search" (input)="search(searchModel)" placeholder="Search Here">
         <button (click)="mySearch(searchModel)">Search</button>
     </div>
     <div>
@@ -21,14 +21,6 @@ font-weight: 400;"
         </select>
     </div>
     
-    <!-- <div>
-        <label >Filter</label>
-        <select name="" id="" [(ngModel)]="searchModel.filterField">
-            <option value="department">Department</option>
-            <option value="name">Name</option>
-        </select>
-        <input type="text" placeholder="Enter data" (input)="mySearch(searchModel)" [(ngModel)]="searchModel.filter">
-    </div> -->
     <div>
         <label >Page Size</label>
         <select name="" id="" [(ngModel)]="searchModel.psize" (change)="ontableSizeChange($event)">

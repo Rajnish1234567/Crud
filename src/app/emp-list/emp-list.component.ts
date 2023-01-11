@@ -13,6 +13,7 @@ export class EmpListComponent implements OnInit {
   employees: UserData[]=[];
   searchModel: SearchModel=new SearchModel();
   total:Number=0;
+  timer:any;
   constructor(private employeeService: EmpService, private router: Router){
     this.searchModel.psize=5;
     this.searchModel.fromValue=1;
@@ -31,6 +32,12 @@ export class EmpListComponent implements OnInit {
     });
   }
 
+  search(searchModel :SearchModel){
+    clearTimeout(this.timer);
+    this.timer=setTimeout(()=>{
+      this.mySearch(searchModel);
+    },600)
+  }
   mySearch(searchModel:SearchModel){
     this.employeeService.getModifiedList(this.searchModel).subscribe({
       next:(response)=>{

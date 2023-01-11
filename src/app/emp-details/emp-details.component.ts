@@ -16,16 +16,11 @@ export class EmpDetailsComponent implements OnInit {
   address: AddressData[]=[];
   bankDetails:BankingData=new BankingData();
 
-
-
   constructor( private route: ActivatedRoute,
     private router: Router,
     private employeeService: EmpService
     ) { }
     
-
-
-
   ngOnInit() {
     this.id=this.route.snapshot.params['id'];
 
@@ -37,29 +32,6 @@ export class EmpDetailsComponent implements OnInit {
       alert(error.error.details);
       }
     });
-
-    // this.employeeService.getAddressByEmpId(this.id).subscribe({
-    //   next:(response)=>{
-    //     this.address=response;
-    //     console.log(response);
-        
-    //   }, error:(error)=>{
-    //     console.log(error.error.details);
-    //   }
-    // });
-
-
-    // this.employeeService.getBankDetailsByEmpId(this.id).subscribe({
-    //   next:(response)=>{
-    //     this.bankDetails=response;
-    //     console.log(response);
-    //   }, error:(error)=>{
-    //     console.log(error.error.details);
-    //   }
-    // });
-
-
-
   }
 
   editBankDetails(bankId:any){
