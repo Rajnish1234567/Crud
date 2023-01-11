@@ -27,6 +27,10 @@ export class UpdateEmployeeComponent implements OnInit {
   ngOnInit(): void {
     this.id=this.route.snapshot.params['id'];
 
+    this.addrss=new AddressData();
+    this.addArray.push(this.addrss);
+
+    
     this.employeeService.getEmployeeById(this.id).subscribe(data=>{
       this.userData=data;
       console.log(this.userData,"userData");
@@ -34,9 +38,6 @@ export class UpdateEmployeeComponent implements OnInit {
     }, error=>{
       alert(error.error.details);
     });
-  
-    this.addrss=new AddressData();
-    this.addArray.push(this.addrss);
   }
 
   addAddress(){
@@ -48,7 +49,8 @@ export class UpdateEmployeeComponent implements OnInit {
   }
   updateEmployee(){
     this.employeeService.updateEmployee(this.userData).subscribe(data=>{
-      this.router.navigate(['/employees']);
+      // this.router.navigate(['/employees']);
+      this.router.navigate(['employee-details',this.id]);
     },error=>{
       alert(error.error.details);
     });

@@ -13,7 +13,7 @@ export class LoginComponent {
   constructor(private userservice: EmpService, 
       private userauthservice: UserAuthService,
       private router: Router){}
-      @Output() messageEvent= new EventEmitter<Boolean>();
+      @Output() messageEvent= new EventEmitter<boolean>();
       flag!: boolean;
 
   loginUser(loginForm:NgForm){
@@ -21,14 +21,14 @@ export class LoginComponent {
     next:(response)=>{
       this.userauthservice.setToken(response.token);
       this.flag=true;
+      this.router.navigate(['/employees'])
     }, error:(error)=>{
       console.log(error);
     }
     });
   }
 
-  
-  sendLoginMessage(){
+  sendLoginMessage():any{
     this.messageEvent.emit(this.flag);
   }
 }

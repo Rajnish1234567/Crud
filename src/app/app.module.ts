@@ -17,7 +17,8 @@ import { LogoutComponent } from './logout/logout.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { EmpService } from './emp.service';
-import { NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule, SPINNER } from 'ngx-ui-loader';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,9 +40,11 @@ import { NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule } fro
     NgxPaginationModule,
     NgxUiLoaderModule,
     NgxUiLoaderRouterModule,
-    NgxUiLoaderHttpModule.forRoot({
+    NgxUiLoaderHttpModule.forRoot(
+      {
       showForeground: true,
-    }),
+      }
+    ),
   ],
   providers: [
     AuthGuard,
